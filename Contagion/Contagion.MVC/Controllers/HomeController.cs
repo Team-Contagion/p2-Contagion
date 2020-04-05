@@ -27,7 +27,7 @@ namespace Contagion.MVC.Controllers
         [HttpGet]
         public IActionResult Users()
         {
-            return View();
+            return View(new UserModel());
         }
 
         public IActionResult GetLocation()

@@ -10,7 +10,7 @@ namespace Contagion.Storage.Database
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
-      builder.UseSqlServer("server=localhost;database=contagiondb;user id=sa;password=Password12345;");
+      builder.UseSqlServer("server=sql;database=contagiondb;user id=sa;password=Password12345;");
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
