@@ -23,17 +23,13 @@ namespace Contagion.Storage.Migrations
             migrationBuilder.InsertData(
                 table: "User",
                 columns: new[] { "UserPhone", "Lat", "Long" },
-                values: new object[] { 1234567890, -13.12m, 16.32m });
-
-            migrationBuilder.InsertData(
-                table: "User",
-                columns: new[] { "UserPhone", "Lat", "Long" },
-                values: new object[] { 987653432, 43.54m, -78.65m });
-
-            migrationBuilder.InsertData(
-                table: "User",
-                columns: new[] { "UserPhone", "Lat", "Long" },
-                values: new object[] { 1912552132, 84.54m, -55.65m });
+                values: new object[,]
+                {
+                    { 1234567890, -13.12m, 16.32m },
+                    { 987653432, 43.54m, -78.65m },
+                    { 1912552132, 84.54m, -55.65m },
+                    { 1912352132, 81.54m, -56.65m }
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

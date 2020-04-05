@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Contagion.Storage.Migrations
 {
     [DbContext(typeof(ContagionDbContext))]
-    [Migration("20200405210055_firstmigration")]
+    [Migration("20200405233913_firstmigration")]
     partial class firstmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -55,6 +55,12 @@ namespace Contagion.Storage.Migrations
                             UserPhone = 1912552132,
                             Lat = 84.54m,
                             Long = -55.65m
+                        },
+                        new
+                        {
+                            UserPhone = 1912352132,
+                            Lat = 81.54m,
+                            Long = -56.65m
                         });
                 });
 #pragma warning restore 612, 618
