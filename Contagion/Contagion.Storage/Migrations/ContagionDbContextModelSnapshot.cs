@@ -47,6 +47,12 @@ namespace Contagion.Storage.Migrations
                             UserPhone = 987653432,
                             Lat = 43.54m,
                             Long = -78.65m
+                        },
+                        new
+                        {
+                            UserPhone = 1912552132,
+                            Lat = 84.54m,
+                            Long = -55.65m
                         });
                 });
 #pragma warning restore 612, 618
