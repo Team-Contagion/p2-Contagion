@@ -55,7 +55,7 @@ stages:
               command: login
               containerRegistry: docker
           - script: |
-              docker image build --file .docker/mvc.dockerfile --tag bennetcd/mvcproj Contagion/Contagion.MVC
+              docker image build --file .docker/mvc.dockerfile --tag bennetcd/mvcproj Contagion
               docker image push bennetcd/mvcproj
           - task: Docker@2
             inputs:
@@ -68,7 +68,7 @@ stages:
               command: login
               containerRegistry: docker
           - script: |
-              docker image build --file .docker/api.dockerfile --tag bennetcd/apiproj Contagion/Contagion.API
+              docker image build --file .docker/api.dockerfile --tag bennetcd/apiproj Contagion
               docker image push bennetcd/apiproj
           - task: Docker@2
             inputs:
