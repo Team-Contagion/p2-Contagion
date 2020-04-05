@@ -22,6 +22,7 @@ namespace Contagion.Storage.Database
         new User() { UserPhone = 1234567890, Lat = -13.12M, Long = 16.32M},
         new User() { UserPhone = 0987653432, Lat = 43.54M, Long = -78.65M},
         new User() { UserPhone = 1912552132, Lat = 84.54M, Long = -55.65M},
+        new User() { UserPhone = 1912352132, Lat = 81.54M, Long = -56.65M},
       });
     }
     private static readonly ContagionDbContext _db = new ContagionDbContext();
