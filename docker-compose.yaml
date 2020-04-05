@@ -5,7 +5,7 @@ services:
   mvc:
     build:
       context: Contagion
-      dockerfile: ../../.docker/mvc.dockerfile
+      dockerfile: ../.docker/mvc.dockerfile
     image: bennetcd/mvcproj
     ports:
       - 4000:80
@@ -17,7 +17,7 @@ services:
   api:
     build:
       context: Contagion
-      dockerfile: ../../.docker/api.dockerfile
+      dockerfile: ../.docker/api.dockerfile
     image: bennetcd/apiproj
     ports:
       - 0:80
