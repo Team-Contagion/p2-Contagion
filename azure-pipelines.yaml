@@ -57,6 +57,7 @@ stages:
           - script: |
               docker image build --file .docker/mvc.dockerfile --tag bennetcd/mvcproj Contagion/Contagion.MVC
               docker image push bennetcd/mvcproj
+        workingDirectory: $(working_dir)
           - task: Docker@2
             inputs:
               command: logout
@@ -70,6 +71,7 @@ stages:
           - script: |
               docker image build --file .docker/api.dockerfile --tag bennetcd/apiproj Contagion/Contagion.API
               docker image push bennetcd/apiproj
+        workingDirectory: $(working_dir)
           - task: Docker@2
             inputs:
               command: logout
@@ -94,3 +96,7 @@ stages:
 
 trigger:
   - master
+
+  variables:
+    - name: working_dir
+      value: $(System.DefaultWorkingDirectory)/Contagion
