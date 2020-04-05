@@ -1,18 +1,28 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<button id = "find-me">Show my location</button><br/>
-<p id = "status"></p>
+<div id="UserBox">
+    <button id = "find-me">Show my location</button><br/>
+    <p id = "status"></p>
+
+</div>
 
 <script>
     function geoFindMe() {
         const status = document.querySelector('#status');
+        const div = document.querySelector('#UserBox');
+        console.log(div);
 
         function success(position) {
             const latitude  = position.coords.latitude;
             const longitude = position.coords.longitude;
 
             status.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+            
+            const inp = document.createElement("input");
+            inp.setAttribute("id", "PhoneNumber");
+
+            div.appendChild(inp);
         }
 
         function error() {
@@ -29,3 +39,5 @@
 
     document.querySelector('#find-me').addEventListener('click', geoFindMe);
 </script>
+
+
