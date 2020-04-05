@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using Contagion.API.Repositories;
+using Contagion.Storage.Repositories;
 
 namespace Contagion.API.Models
 {
