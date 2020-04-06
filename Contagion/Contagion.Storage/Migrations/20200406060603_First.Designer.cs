@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Contagion.Storage.Migrations
 {
     [DbContext(typeof(ContagionDbContext))]
-    [Migration("20200406052604_teb")]
-    partial class teb
+    [Migration("20200406060603_First")]
+    partial class First
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,7 @@ namespace Contagion.Storage.Migrations
 
             modelBuilder.Entity("Contagion.Storage.Models.User", b =>
                 {
-                    b.Property<long>("UserPhone")
+                    b.Property<long>("UserId")
                         .HasColumnType("bigint");
 
                     b.Property<decimal>("Lat")
@@ -31,34 +31,41 @@ namespace Contagion.Storage.Migrations
                     b.Property<decimal>("Long")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("UserPhone");
+                    b.Property<long>("UserPhone")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("UserId");
 
                     b.ToTable("User");
 
                     b.HasData(
                         new
                         {
-                            UserPhone = 1234567890L,
+                            UserId = 637217319629859224L,
                             Lat = -13.12m,
-                            Long = 16.32m
+                            Long = 16.32m,
+                            UserPhone = 1234567890L
                         },
                         new
                         {
-                            UserPhone = 987653432L,
+                            UserId = 637217319629876214L,
                             Lat = 32.7286784m,
-                            Long = -97.1046912m
+                            Long = -97.1046912m,
+                            UserPhone = 987653432L
                         },
                         new
                         {
-                            UserPhone = 1912552132L,
+                            UserId = 637217319629876263L,
                             Lat = 84.54m,
-                            Long = -55.65m
+                            Long = -55.65m,
+                            UserPhone = 1912552132L
                         },
                         new
                         {
-                            UserPhone = 8888888888L,
+                            UserId = 637217319629876268L,
                             Lat = 81.54m,
-                            Long = -56.65m
+                            Long = -56.65m,
+                            UserPhone = 8888888888L
                         });
                 });
 #pragma warning restore 612, 618

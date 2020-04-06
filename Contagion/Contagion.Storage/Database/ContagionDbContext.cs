@@ -15,8 +15,8 @@ namespace Contagion.Storage.Database
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
-      builder.Entity<User>().HasKey(u => u.UserPhone);
-      builder.Entity<User>().Property(u => u.UserPhone).ValueGeneratedNever();
+      builder.Entity<User>().HasKey(u => u.UserId);
+      builder.Entity<User>().Property(u => u.UserId).ValueGeneratedNever();
       
       builder.Entity<User>().HasData(new User[]
       {

@@ -2,7 +2,7 @@
 
 namespace Contagion.Storage.Migrations
 {
-    public partial class teb : Migration
+    public partial class First : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -10,24 +10,25 @@ namespace Contagion.Storage.Migrations
                 name: "User",
                 columns: table => new
                 {
+                    UserId = table.Column<long>(nullable: false),
                     UserPhone = table.Column<long>(nullable: false),
                     Lat = table.Column<decimal>(nullable: false),
                     Long = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.UserPhone);
+                    table.PrimaryKey("PK_User", x => x.UserId);
                 });
 
             migrationBuilder.InsertData(
                 table: "User",
-                columns: new[] { "UserPhone", "Lat", "Long" },
+                columns: new[] { "UserId", "Lat", "Long", "UserPhone" },
                 values: new object[,]
                 {
-                    { 1234567890L, -13.12m, 16.32m },
-                    { 987653432L, 32.7286784m, -97.1046912m },
-                    { 1912552132L, 84.54m, -55.65m },
-                    { 8888888888L, 81.54m, -56.65m }
+                    { 637217319629859224L, -13.12m, 16.32m, 1234567890L },
+                    { 637217319629876214L, 32.7286784m, -97.1046912m, 987653432L },
+                    { 637217319629876263L, 84.54m, -55.65m, 1912552132L },
+                    { 637217319629876268L, 81.54m, -56.65m, 8888888888L }
                 });
         }
 
