@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Contagion.API.Models;
+using Contagion.Storage.Repositories;
+using Contagion.Storage.Models;
 
 namespace Contagion.API.Controllers
 {
+
   [ApiController]
   [Route("[controller]")]
-  public class ContagionController : Controller
+  public class ContagionController : ControllerBase
   {
+    private readonly UserRepo _up = new UserRepo();
+
     [HttpPost]
-    public IActionResult NewUser()
+    public bool NewUser(User user)
     {
-      return View();
+      return true;
     }
   }
 }
