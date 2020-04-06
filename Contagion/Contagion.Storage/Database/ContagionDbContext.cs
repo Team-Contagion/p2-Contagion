@@ -20,10 +20,14 @@ namespace Contagion.Storage.Database
       
       builder.Entity<User>().HasData(new User[]
       {
-        new User() { UserPhone = 1234567890, Lat = -13.12M, Long = 16.32M},
         new User() { UserPhone = 0987653432, Lat = 32.7286784M, Long = -97.1046912M},
-        new User() { UserPhone = 1912552132, Lat = 84.54M, Long = -55.65M},
-        new User() { UserPhone = 8888888888, Lat = 81.54M, Long = -56.65M},
+        new User() { UserPhone = 8175550150, Lat = 32.7286784M, Long = -97.1346912M},
+        new User() { UserPhone = 8175550131, Lat = 32.7566784M, Long = -97.1146912M},
+        new User() { UserPhone = 8175550117, Lat = 32.7066784M, Long = -97.0846912M},
+        new User() { UserPhone = 8175550142, Lat = 32.7186784M, Long = -97.2986532M},
+        new User() { UserPhone = 8175550101, Lat = 32.7413513M, Long = -97.0846912M},
+        new User() { UserPhone = 8175550148, Lat = 32.7281164M, Long = -97.1212765M},
+        new User() { UserPhone = 8175550189, Lat = 32.7185123M, Long = -97.1416348M},       
       });
     }
     private static readonly ContagionDbContext _db = new ContagionDbContext();
@@ -43,4 +47,4 @@ namespace Contagion.Storage.Database
         //   new UserModel() { UserPhone = 8175550142, Lat = 32.7186784M, Long = -97M},
         //   new UserModel() { UserPhone = 8175550101, Lat = 32.74M, Long = -97.0846912M},
         //   new UserModel() { UserPhone = 8175550148, Lat = 32.728M, Long = -97.12M},
-        //   new UserModel() { UserPhone = 8175550148, Lat = 32.718M, Long = -97.14M}
+        //   new UserModel() { UserPhone = 8175550148, Lat = 32.718M, Long = -97.14M}          

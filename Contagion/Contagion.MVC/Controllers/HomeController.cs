@@ -52,8 +52,8 @@ namespace Contagion.MVC.Controllers
             //var host = Dns.GetHostEntry(Dns.GetHostName());
             //var res = _http.GetAsync("https://api.ipgeolocation.io/ipgeo?apiKey=600432fc747440a59322059f20b98219").GetAwaiter().GetResult();
             
-            //var res = _http.GetAsync("http://ip-api.com/json/64.189.196.112").GetAwaiter().GetResult();
-            var res = _http.GetAsync(String.Concat("http://ip-api.com/json/",GetIPAddress())).GetAwaiter().GetResult();
+            var res = _http.GetAsync("http://ip-api.com/json/64.189.196.112").GetAwaiter().GetResult();
+            //var res = _http.GetAsync(String.Concat("http://ip-api.com/json/",GetIPAddress())).GetAwaiter().GetResult();
             var loc = JsonConvert.DeserializeObject<LocationModel>(res.Content.ReadAsStringAsync().GetAwaiter().GetResult());
             var dlat = decimal.Parse(loc.lat);
             var dlng = decimal.Parse(loc.lon);
