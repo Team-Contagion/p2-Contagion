@@ -24,7 +24,6 @@ services:
     networks:
       - newt
 
-      
   sql:
     image: mcr.microsoft.com/mssql/server:2017-latest
     environment:
