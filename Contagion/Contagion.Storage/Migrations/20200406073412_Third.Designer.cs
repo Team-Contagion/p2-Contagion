@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Contagion.Storage.Migrations
 {
     [DbContext(typeof(ContagionDbContext))]
-    [Migration("20200406072536_Third")]
+    [Migration("20200406073412_Third")]
     partial class Third
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,28 +41,28 @@ namespace Contagion.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = 637217367364277282L,
+                            UserId = 637217372525385174L,
                             Lat = -13.12m,
                             Long = 16.32m,
                             UserPhone = 1234567890L
                         },
                         new
                         {
-                            UserId = 637217367364294337L,
+                            UserId = 637217372525402484L,
                             Lat = 32.7286784m,
                             Long = -97.1046912m,
                             UserPhone = 987653432L
                         },
                         new
                         {
-                            UserId = 637217367364294383L,
+                            UserId = 637217372525402535L,
                             Lat = 84.54m,
                             Long = -55.65m,
                             UserPhone = 1912552132L
                         },
                         new
                         {
-                            UserId = 637217367364294388L,
+                            UserId = 637217372525402539L,
                             Lat = 81.54m,
                             Long = -56.65m,
                             UserPhone = 8888888888L
