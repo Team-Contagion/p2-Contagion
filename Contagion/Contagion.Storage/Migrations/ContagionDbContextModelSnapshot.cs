@@ -20,10 +20,8 @@ namespace Contagion.Storage.Migrations
 
             modelBuilder.Entity("Contagion.Storage.Models.User", b =>
                 {
-                    b.Property<int>("UserPhone")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<long>("UserPhone")
+                        .HasColumnType("bigint");
 
                     b.Property<decimal>("Lat")
                         .HasColumnType("decimal(18,2)");
@@ -38,25 +36,25 @@ namespace Contagion.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            UserPhone = 1234567890,
+                            UserPhone = 1234567890L,
                             Lat = -13.12m,
                             Long = 16.32m
                         },
                         new
                         {
-                            UserPhone = 987653432,
-                            Lat = 43.54m,
-                            Long = -78.65m
+                            UserPhone = 987653432L,
+                            Lat = 32.7286784m,
+                            Long = -97.1046912m
                         },
                         new
                         {
-                            UserPhone = 1912552132,
+                            UserPhone = 1912552132L,
                             Lat = 84.54m,
                             Long = -55.65m
                         },
                         new
                         {
-                            UserPhone = 1912352132,
+                            UserPhone = 8888888888L,
                             Lat = 81.54m,
                             Long = -56.65m
                         });

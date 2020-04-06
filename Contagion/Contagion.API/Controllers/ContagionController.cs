@@ -5,7 +5,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Contagion.API.Models;
 using Contagion.Storage.Repositories;
 using Contagion.Storage.Models;
 
@@ -16,12 +15,27 @@ namespace Contagion.API.Controllers
   [Route("[controller]")]
   public class ContagionController : ControllerBase
   {
-    private readonly UserRepo _up = new UserRepo();
+    private static readonly UserRepo _ur = new UserRepo();
+
+    private readonly ILogger<ContagionController> _logger;
+
+    public ContagionController(ILogger<ContagionController> logger)
+    {
+      _logger = logger;
+    }
+
+    [HttpGet]
+    public IActionResult Get()
+    {
+      List<User> _lu = _ur.Get();
+      return Ok(_lu);
+    }
 
     [HttpPost]
-    public bool NewUser(User user)
+    public IActionResult GetPost([FromBody] User user)
     {
-      return true;
+      _ur.Post(user);
+      return Ok();
     }
   }
 }
