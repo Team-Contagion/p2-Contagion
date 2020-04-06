@@ -84,10 +84,11 @@ stages:
             displayName: Run services
             inputs:
               action: Run services
-              azureContainerRegistry: Contagion
+              azureSubscriptionEndpoint: $(azure.subscription)
               containerRegistryType: Container Registry
               dockerComposeFile: docker-compose.yaml
-              projectName: p2
+              WebAppName: Contagion
+              projectName: $(Build.Repository.Name)
               buildImages: false
               detached: true
 
