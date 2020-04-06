@@ -1,82 +1,66 @@
-﻿@{
+﻿@model List<UserModel>;
+
+@{
     ViewData["Title"] = "Home Page";
 }
-<!DOCTYPE html>
-<html>
-
-<head>
-  <style>
-    /* Set the size of the div element that contains the map */
-    #map {
-      height: 400px;
-      /* The height is 400 pixels */
-      width: 100%;
-      /* The width is the width of the web page */
-    }
-  </style>
-</head>
-
-<body>
-  <h3>My Google Maps Demo</h3>
 
 
-  <a href="home/users">Users</a>
-  <a href="home/getlocation">Get Current Location</a>
 
-  
-  <!--The div element for the map -->
-  <div id="map"></div>
-  <script>
-    // Initialize and add the map
-    function initMap() {
-      // The location of Uluru
-      var arlington1 = { lat: 32.7286784, lng: -97.1046912 };
-      // The map, centered at Uluru
-          var bounds = new google.maps.LatLngBounds();
-    var mapOptions = {
-        mapTypeId: 'roadmap'
-    };
-      var map = new google.maps.Map(
-        document.getElementById('map'), { zoom: 15, center: arlington1 });
-      // The marker, positioned at Uluru
-      var markers = [
-        ['Arlington', 32.7286784,-97.1046912],
-        ['Arlington', 32.7266784, -97.1046912],
-        ['Arlington', 32.7266784, -97.0846912],
-        ['Arlington', 32.7286784, -97.0846912]
-      ];
+<form action="https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyD1nBebK6pxUk4yV-gwfwCDRxltAfRnxss" method="post" target="_self">
+  <label>Get current Location</label>
+  <input type="text"/>
+  <input type="submit" value="Submit">
+</form>
 
-      for( i = 0; i < markers.length; i++ ) {
-        var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-        bounds.extend(position);
-        marker = new google.maps.Marker({
-            position: position,
-            map: map,
-            title: markers[i][0]
-        });
-      }
+@{var url = "https://maps.googleapis.com/maps/api/staticmap?";}
 
-      var noPoi = [
-        {
-          featureType: "poi",
-          stylers: [
-            { visibility: "off" }
-          ]
-        }
-      ];
+@{var markers = "";}
 
-      map.setOptions({ styles: noPoi });
-      map.fitBounds(bounds);
-    }
-  </script>
-  <!--Load the API from the specified URL
-    * The async attribute allows the browser to render the page while the API loads
-    * The key parameter will contain your own API key (which is not needed for this tutorial)
-    * The callback parameter executes the initMap() function
-    -->
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc&callback=initMap">
-    </script>
-</body>
+@{var count = Model.Count;}
+@{var center = "center=" + Model[count-1].Lat + ',' + Model[count-1].Long + "&";}
+@{var zoom = "zoom=12&size=800x600&maptype=roadmap&";}
+@{var key = "key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc";}
 
-</html>
+
+@for (int i = 0; i < Model.Count - 1; i++)
+{
+  var color = "color:red%7Clabel:C%7C";
+  var latlong = Model[i].Lat + "," + Model[i].Long + "&";
+  markers += "markers=" + color + latlong;
+}
+@{var colorHome = "color:blue%7Clabel:H%7C";}
+@{var latlongHome = Model[count-1].Lat + "," + Model[count-1].Long + "&";}
+@{markers += "markers=" + colorHome + latlongHome;}
+
+@* 
+center=Brooklyn+Bridge,New+York,NY&
+zoom=13&size=600x300&maptype=roadmap&
+markers=color:blue%7Clabel:S%7C40.702147,-74.015794&
+markers=color:green%7Clabel:G%7C40.711614,-74.012318&
+markers=color:red%7Clabel:C%7C40.718217,-73.998284&
+key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc 
+
+
+https://maps.googleapis.com/maps/api/staticmap?
+center=32.728,-97.1&
+zoom=13&size=800x600&maptype=roadmap&
+markers=color:red%7Clabel:C%7C&&32.7286784,-97.1346912&
+markers=color:red%7Clabel:C%7C&&32.7266784,-97.1146912&
+markers=color:red%7Clabel:C%7C&&32.7266784,-97.0846912&
+markers=color:red%7Clabel:C%7C&&32.7286784,-97&
+markers=color:red%7Clabel:C%7C&&33,-97.0846912&
+markers=color:red%7Clabel:C%7C&&32.728,-97.1&
+key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc
+*@
+}
+@{var request = url + center + zoom + markers + key;}
+
+<h3>My Google Maps Demo</h3>
+
+<img src="@request">
+
+<p>@request</p>
+
+
+<!--The div element for the map -->
+<div id="map"></div>

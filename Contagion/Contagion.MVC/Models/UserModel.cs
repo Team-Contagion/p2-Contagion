@@ -8,7 +8,7 @@ namespace Contagion.MVC.Models
   {
     private readonly UserRepo _up = new UserRepo();
 
-    public int UserPhone { get; set; }
+    public long UserPhone { get; set; }
     public decimal Lat { get; set; }
     public decimal Long { get; set; }
     public List<User> users { get; set; }
@@ -16,6 +16,13 @@ namespace Contagion.MVC.Models
     public UserModel()
     {
       users = _up.Get();
+    }
+
+    public UserModel(long up, decimal lat, decimal lg)
+    {
+      UserPhone = up;
+      Lat = lat;
+      Long = lg;
     }
   }
 
