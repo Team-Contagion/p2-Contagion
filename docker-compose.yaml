@@ -14,7 +14,7 @@ services:
     environment:
       ConnectionStrings__main: "server=sql;database=contagiondb;user id=sa;password=Password12345;"
     depends_on: 
-      sql
+      - sql
       
   api:
     build:
