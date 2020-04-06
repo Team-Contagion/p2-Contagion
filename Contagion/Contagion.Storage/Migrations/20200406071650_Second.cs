@@ -2,7 +2,7 @@
 
 namespace Contagion.Storage.Migrations
 {
-    public partial class First : Migration
+    public partial class Second : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -25,10 +25,10 @@ namespace Contagion.Storage.Migrations
                 columns: new[] { "UserId", "Lat", "Long", "UserPhone" },
                 values: new object[,]
                 {
-                    { 637217319629859224L, -13.12m, 16.32m, 1234567890L },
-                    { 637217319629876214L, 32.7286784m, -97.1046912m, 987653432L },
-                    { 637217319629876263L, 84.54m, -55.65m, 1912552132L },
-                    { 637217319629876268L, 81.54m, -56.65m, 8888888888L }
+                    { 637217362103956189L, -13.12m, 16.32m, 1234567890L },
+                    { 637217362103973553L, 32.7286784m, -97.1046912m, 987653432L },
+                    { 637217362103973603L, 84.54m, -55.65m, 1912552132L },
+                    { 637217362103973608L, 81.54m, -56.65m, 8888888888L }
                 });
         }
 

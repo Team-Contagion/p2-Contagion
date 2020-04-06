@@ -9,6 +9,10 @@ using Contagion.MVC.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Text;
+using System.Net;
+using System.Net.Sockets;
+using System.Web;
+using Microsoft.AspNetCore.Http;
 
 namespace Contagion.MVC.Controllers
 {
@@ -22,12 +26,37 @@ namespace Contagion.MVC.Controllers
             _logger = logger;
         }
 
+        public string GetIPAddress()
+        {
+            string IPA = "";
+            IPHostEntry Host = default(IPHostEntry);
+            string Hostname = null;
+            Hostname = System.Environment.MachineName;
+            Host = Dns.GetHostEntry(Hostname);
+            foreach (IPAddress IP in Host.AddressList) {
+                if (IP.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork) {
+                    IPA = Convert.ToString(IP);
+                }
+            }
+            return IPA;
+        }
+
+        // private string GetUserIP()
+        //     {
+        //         HttpContext context = HttpContext.Current; 
+        //         string ipAddress = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+        //     }
+
         public IActionResult Index()
         {
-            var res = _http.GetAsync("https://api.ipgeolocation.io/ipgeo?apiKey=600432fc747440a59322059f20b98219").GetAwaiter().GetResult();
+            //var host = Dns.GetHostEntry(Dns.GetHostName());
+            //var res = _http.GetAsync("https://api.ipgeolocation.io/ipgeo?apiKey=600432fc747440a59322059f20b98219").GetAwaiter().GetResult();
+            
+            //var res = _http.GetAsync("http://ip-api.com/json/64.189.196.112").GetAwaiter().GetResult();
+            var res = _http.GetAsync(String.Concat("http://ip-api.com/json/",GetIPAddress())).GetAwaiter().GetResult();
             var loc = JsonConvert.DeserializeObject<LocationModel>(res.Content.ReadAsStringAsync().GetAwaiter().GetResult());
-            var dlat = decimal.Parse(loc.latitude);
-            var dlng = decimal.Parse(loc.longitude);
+            var dlat = decimal.Parse(loc.lat);
+            var dlng = decimal.Parse(loc.lon);
             var user = new UserModel(999999999, dlat, dlng);
 
             string json = JsonConvert.SerializeObject(user);
