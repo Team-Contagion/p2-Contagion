@@ -26,7 +26,7 @@ namespace Contagion.Storage.Migrations
                     b.Property<decimal>("Lat")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("Long")
+                    b.Property<decimal>("Lon")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<long>("UserPhone")
@@ -39,58 +39,58 @@ namespace Contagion.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = 637217394009047652L,
+                            UserId = 637217799568308821L,
                             Lat = 32.7286784m,
-                            Long = -97.1046912m,
+                            Lon = -97.1046912m,
                             UserPhone = 987653432L
                         },
                         new
                         {
-                            UserId = 637217394009065375L,
+                            UserId = 637217799568324520L,
                             Lat = 32.7286784m,
-                            Long = -97.1346912m,
+                            Lon = -97.1346912m,
                             UserPhone = 8175550150L
                         },
                         new
                         {
-                            UserId = 637217394009065424L,
+                            UserId = 637217799568324577L,
                             Lat = 32.7566784m,
-                            Long = -97.1146912m,
+                            Lon = -97.1146912m,
                             UserPhone = 8175550131L
                         },
                         new
                         {
-                            UserId = 637217394009065429L,
+                            UserId = 637217799568324582L,
                             Lat = 32.7066784m,
-                            Long = -97.0846912m,
+                            Lon = -97.0846912m,
                             UserPhone = 8175550117L
                         },
                         new
                         {
-                            UserId = 637217394009065431L,
+                            UserId = 637217799568324585L,
                             Lat = 32.7186784m,
-                            Long = -97.2986532m,
+                            Lon = -97.2986532m,
                             UserPhone = 8175550142L
                         },
                         new
                         {
-                            UserId = 637217394009065434L,
+                            UserId = 637217799568324588L,
                             Lat = 32.7413513m,
-                            Long = -97.0846912m,
+                            Lon = -97.0846912m,
                             UserPhone = 8175550101L
                         },
                         new
                         {
-                            UserId = 637217394009065437L,
+                            UserId = 637217799568324591L,
                             Lat = 32.7281164m,
-                            Long = -97.1212765m,
+                            Lon = -97.1212765m,
                             UserPhone = 8175550148L
                         },
                         new
                         {
-                            UserId = 637217394009065440L,
+                            UserId = 637217799568324593L,
                             Lat = 32.7185123m,
-                            Long = -97.1416348m,
+                            Lon = -97.1416348m,
                             UserPhone = 8175550189L
                         });
                 });

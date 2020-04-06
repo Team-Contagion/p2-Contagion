@@ -52,29 +52,40 @@ namespace Contagion.MVC.Controllers
             //var host = Dns.GetHostEntry(Dns.GetHostName());
             //var res = _http.GetAsync("https://api.ipgeolocation.io/ipgeo?apiKey=600432fc747440a59322059f20b98219").GetAwaiter().GetResult();
             
-            var res = _http.GetAsync("http://ip-api.com/json/64.189.196.112").GetAwaiter().GetResult();
+            // var res = _http.GetAsync("http://ip-api.com/json/64.189.196.112").GetAwaiter().GetResult();
             //var res = _http.GetAsync(String.Concat("http://ip-api.com/json/",GetIPAddress())).GetAwaiter().GetResult();
-            var loc = JsonConvert.DeserializeObject<LocationModel>(res.Content.ReadAsStringAsync().GetAwaiter().GetResult());
-            var dlat = decimal.Parse(loc.lat);
-            var dlng = decimal.Parse(loc.lon);
-            var user = new UserModel(999999999, dlat, dlng);
+            // var loc = JsonConvert.DeserializeObject<LocationModel>(res.Content.ReadAsStringAsync().GetAwaiter().GetResult());
+            // var dlat = decimal.Parse(loc.lat);
+            // var dlng = decimal.Parse(loc.lon);
+            // var user = new UserModel(999999999, dlat, dlng);
 
-            string json = JsonConvert.SerializeObject(user);
-            HttpContent httpContent = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = _http.PostAsync("http://api/contagion", httpContent).GetAwaiter().GetResult();
+            // string json = JsonConvert.SerializeObject(user);
+            // HttpContent httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+            // var response = _http.PostAsync("http://api/contagion", httpContent).GetAwaiter().GetResult();
 
-            response.EnsureSuccessStatusCode();
+            // response.EnsureSuccessStatusCode();
 
-            var res2 = _http.GetAsync("http://api/contagion").GetAwaiter().GetResult();
-            var users = JsonConvert.DeserializeObject<List<UserModel>>(res2.Content.ReadAsStringAsync().GetAwaiter().GetResult());
+            // var res2 = _http.GetAsync("http://api/contagion").GetAwaiter().GetResult();
+            // var users = JsonConvert.DeserializeObject<List<UserModel>>(res2.Content.ReadAsStringAsync().GetAwaiter().GetResult());
             
-            return View(users);
+            return View(new UserModel());
         }
 
-        [HttpGet]
-        public IActionResult Users()
+        [HttpPost]
+        public IActionResult Users(UserModel userModel)
         {
-            return View(new UserModel());
+          Console.WriteLine(userModel.Lat);
+          Console.WriteLine(userModel.Lon);
+          Console.WriteLine(userModel.UserPhone);
+          string json = JsonConvert.SerializeObject(userModel);
+          HttpContent httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+          var response = _http.PostAsync("http://api/contagion", httpContent).GetAwaiter().GetResult();
+
+          response.EnsureSuccessStatusCode();
+
+          var res = _http.GetAsync("http://api/contagion").GetAwaiter().GetResult();
+          var users = JsonConvert.DeserializeObject<List<UserModel>>(res.Content.ReadAsStringAsync().GetAwaiter().GetResult());
+          return View("Map", users);
         }
 
         public IActionResult GetLocation()

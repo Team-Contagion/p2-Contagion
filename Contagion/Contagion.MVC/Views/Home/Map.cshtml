@@ -1,0 +1,73 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<UserModel>;
+
+@{var url = "https://maps.googleapis.com/maps/api/staticmap?";}
+
+@{var markers = "";}
+
+@{var count = Model.Count;}
+@{var center = "center=" + Model[count-1].Lat + ',' + Model[count-1].Lon + "&";}
+@{var zoom = "zoom=12&size=800x600&maptype=roadmap&";}
+@{var key = "key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc";}
+
+
+@for (int i = 0; i < Model.Count - 1; i++)
+{
+  @* String status = Model[i].status;
+  if (status.equals("Positive"))
+  {
+    var color = "color:red%7Clabel:C%7C";
+  } else if (status.Equals("Negative")) 
+  {
+    var color = "color:blue%7Clabel:S%7C";
+  } else if (status.Equals("Healthy"))
+  {
+    var color = "color:yellow%7Clabel:C%7C";
+  } else if (status.Equals("Symptotic"))
+  {
+    var color = "color:green%7Clabel:C%7C";
+  } *@
+  var color = "color:red%7Clabel:C%7C";
+  var latlong = Model[i].Lat + "," + Model[i].Lon + "&";
+  markers += "markers=" + color + latlong;
+}
+@{var colorHome = "color:blue%7Clabel:H%7C";}
+@{var latlongHome = Model[count-1].Lat+ "," + Model[count-1].Lon + "&";}
+@{markers += "markers=" + colorHome + latlongHome;}
+
+@* 
+center=Brooklyn+Bridge,New+York,NY&
+zoom=13&size=600x300&maptype=roadmap&
+markers=color:blue%7Clabel:S%7C40.702147,-74.015794&
+markers=color:green%7Clabel:G%7C40.711614,-74.012318&
+markers=color:red%7Clabel:C%7C40.718217,-73.998284&
+markers=color:yellow%7Clabel:C%7C40.718217,-73.998284&
+key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc 
+
+
+https://maps.googleapis.com/maps/api/staticmap?
+center=32.728,-97.1&
+zoom=13&size=800x600&maptype=roadmap&
+markers=color:red%7Clabel:C%7C&&32.7286784,-97.1346912&
+markers=color:red%7Clabel:C%7C&&32.7266784,-97.1146912&
+markers=color:red%7Clabel:C%7C&&32.7266784,-97.0846912&
+markers=color:red%7Clabel:C%7C&&32.7286784,-97&
+markers=color:red%7Clabel:C%7C&&33,-97.0846912&
+markers=color:red%7Clabel:C%7C&&32.728,-97.1&
+key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc
+*@
+}
+@{var request = url + center + zoom + markers + key;}
+
+<h3>My Google Maps Demo</h3>
+
+<img src="@request">
+
+<p>@request</p>
+
+
+<!--The div element for the map -->
+<div id="map"></div>

@@ -1,66 +1,68 @@
-﻿@model List<UserModel>;
+﻿@model Contagion.MVC.Models.UserModel;
 
-@{
-    ViewData["Title"] = "Home Page";
-}
+<img src="https://maps.googleapis.com/maps/api/staticmap?center=32.7226,-97.0785&zoom=12&size=640x640&maptype=roadmap&markers=color:red%7Clabel:C%7C32.73,-97.10&markers=color:red%7Clabel:C%7C32.73,-97.13&markers=color:red%7Clabel:C%7C32.76,-97.11&markers=color:red%7Clabel:C%7C32.71,-97.08&markers=color:red%7Clabel:C%7C32.72,-97.30&markers=color:red%7Clabel:C%7C32.74,-97.08&markers=color:red%7Clabel:C%7C32.73,-97.12&markers=color:red%7Clabel:C%7C32.72,-97.14&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:blue%7Clabel:H%7C32.7226,-97.0785&key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc">
 
+<form class="form-group" action="/home/users" method="post">
+  @try
+  {
+    <div class="form-group">
+      <label>Phone Number
+        <input type="text" asp-for="@Model.UserPhone" placeholder="1234567890">
+      </label>
+    </div>
 
+    <button type="button" id="find-me">Find my location</button>
 
-<form action="https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyD1nBebK6pxUk4yV-gwfwCDRxltAfRnxss" method="post" target="_self">
-  <label>Get current Location</label>
-  <input type="text"/>
-  <input type="submit" value="Submit">
+    <br>
+
+    <div class="form-group">
+      <label>Latitude:
+        <input id="lat" type="text" asp-for="@Model.Lat" placeholder="" readonly>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Longitude:
+        <input id="lng" type="text" asp-for="@Model.Lon" placeholder="" readonly>
+      </label>
+    </div>
+  }
+  catch(Exception) {}
+  finally
+  {
+    <br>  
+    <label>By submitting, you agree to give out your current location
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </label>
+  }  
 </form>
 
-@{var url = "https://maps.googleapis.com/maps/api/staticmap?";}
+<script>
+  function geoFindMe() {
+    //const status = document.querySelector('#status');
+    const lat = document.querySelector('#lat');
+    const lng = document.querySelector('#lng');
 
-@{var markers = "";}
+    function success(position) {
+      const latitude  = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      
+      lat.value = latitude;
+      lng.value = longitude;
+      //status.innerHTML = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+    }
 
-@{var count = Model.Count;}
-@{var center = "center=" + Model[count-1].Lat + ',' + Model[count-1].Long + "&";}
-@{var zoom = "zoom=13&size=1024x1024&maptype=roadmap&";}
-@{var key = "key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc";}
+    function error() {
+      status.textContent = 'Unable to retrieve your location';
+    }
 
+    if (!navigator.geolocation) {
+      status.textContent = 'Geolocation is not supported by your browser';
+    } else {
+      status.textContent = 'Locating…';
+      navigator.geolocation.getCurrentPosition(success, error);
+    }
+  }
 
-@for (int i = 0; i < Model.Count - 1; i++)
-{
-  var color = "color:red%7Clabel:C%7C";
-  var latlong = Model[i].Lat + "," + Model[i].Long + "&";
-  markers += "markers=" + color + latlong;
-}
-@{var colorHome = "color:blue%7Clabel:H%7C";}
-@{var latlongHome = Model[count-1].Lat + "," + Model[count-1].Long + "&";}
-@{markers += "markers=" + colorHome + latlongHome;}
-
-@* 
-center=Brooklyn+Bridge,New+York,NY&
-zoom=13&size=600x300&maptype=roadmap&
-markers=color:blue%7Clabel:S%7C40.702147,-74.015794&
-markers=color:green%7Clabel:G%7C40.711614,-74.012318&
-markers=color:red%7Clabel:C%7C40.718217,-73.998284&
-key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc 
-
-
-https://maps.googleapis.com/maps/api/staticmap?
-center=32.728,-97.1&
-zoom=13&size=800x600&maptype=roadmap&
-markers=color:red%7Clabel:C%7C&&32.7286784,-97.1346912&
-markers=color:red%7Clabel:C%7C&&32.7266784,-97.1146912&
-markers=color:red%7Clabel:C%7C&&32.7266784,-97.0846912&
-markers=color:red%7Clabel:C%7C&&32.7286784,-97&
-markers=color:red%7Clabel:C%7C&&33,-97.0846912&
-markers=color:red%7Clabel:C%7C&&32.728,-97.1&
-key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc
-*@
-}
-@{var request = url + center + zoom + markers + key;}
-
-<h3>My Google Maps Demo</h3>
-
-<img src="@request">
-
-<p>@request</p>
-
-
-<!--The div element for the map -->
-<div id="map"></div>
+  document.querySelector('#find-me').addEventListener('click', geoFindMe);
+</script>

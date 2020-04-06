@@ -10,7 +10,7 @@ namespace Contagion.MVC.Models
 
     public long UserPhone { get; set; }
     public decimal Lat { get; set; }
-    public decimal Long { get; set; }
+    public decimal Lon { get; set; }
     public List<User> users { get; set; }
     
     public UserModel()
@@ -22,7 +22,7 @@ namespace Contagion.MVC.Models
     {
       UserPhone = up;
       Lat = lat;
-      Long = lg;
+      Lon = lg;
     }
   }
 
