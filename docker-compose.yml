@@ -13,7 +13,6 @@ services:
       - newt
     environment:
       ConnectionStrings__main: "server=sql;database=contagiondb;user id=sa;password=Password12345;"
-    
       
   api:
     build:
@@ -25,7 +24,6 @@ services:
     networks:
       - newt
 
-      
   sql:
     image: mcr.microsoft.com/mssql/server:2017-latest
     environment:
@@ -36,6 +34,5 @@ services:
     ports:
       - 1433:1433
       
-
 networks:
   newt:
