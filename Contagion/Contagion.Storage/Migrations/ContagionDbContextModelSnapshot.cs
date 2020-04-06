@@ -39,56 +39,56 @@ namespace Contagion.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = 637217378513643737L,
+                            UserId = 637217394009047652L,
                             Lat = 32.7286784m,
                             Long = -97.1046912m,
                             UserPhone = 987653432L
                         },
                         new
                         {
-                            UserId = 637217378513661272L,
+                            UserId = 637217394009065375L,
                             Lat = 32.7286784m,
                             Long = -97.1346912m,
                             UserPhone = 8175550150L
                         },
                         new
                         {
-                            UserId = 637217378513661335L,
+                            UserId = 637217394009065424L,
                             Lat = 32.7566784m,
                             Long = -97.1146912m,
                             UserPhone = 8175550131L
                         },
                         new
                         {
-                            UserId = 637217378513661340L,
+                            UserId = 637217394009065429L,
                             Lat = 32.7066784m,
                             Long = -97.0846912m,
                             UserPhone = 8175550117L
                         },
                         new
                         {
-                            UserId = 637217378513661343L,
+                            UserId = 637217394009065431L,
                             Lat = 32.7186784m,
                             Long = -97.2986532m,
                             UserPhone = 8175550142L
                         },
                         new
                         {
-                            UserId = 637217378513661345L,
+                            UserId = 637217394009065434L,
                             Lat = 32.7413513m,
                             Long = -97.0846912m,
                             UserPhone = 8175550101L
                         },
                         new
                         {
-                            UserId = 637217378513661349L,
+                            UserId = 637217394009065437L,
                             Lat = 32.7281164m,
                             Long = -97.1212765m,
                             UserPhone = 8175550148L
                         },
                         new
                         {
-                            UserId = 637217378513661351L,
+                            UserId = 637217394009065440L,
                             Lat = 32.7185123m,
                             Long = -97.1416348m,
                             UserPhone = 8175550189L
