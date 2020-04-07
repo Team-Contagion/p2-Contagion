@@ -19,32 +19,32 @@ stages:
   #     - job: test_api
 
 
-  # - stage: analyze
-  #   jobs:
-  #     - job: analyze_mvc
-  #       pool:
-  #         vmImage: ubuntu-18.04
-  #       steps:
-  #         - task: DotnetGlobalToolInstaller@0
-  #           inputs:
-  #             name: "dotnet-sonarscanner"
-  #         - script: |
-  #             dotnet sonarscanner begin /k:"p2-Contagion" /o:"team-contagion" /d:sonar.host.url="https://sonarcloud.io/"
-  #             dotnet build Contagion/mvc/ContagionMVC.sln
-  #             dotnet sonarscanner end
+  - stage: analyze
+    jobs:
+      - job: analyze_mvc
+        pool:
+          vmImage: ubuntu-18.04
+        steps:
+          - task: DotnetGlobalToolInstaller@0
+            inputs:
+              name: "dotnet-sonarscanner"
+          - script: |
+              dotnet sonarscanner begin /k:"p2-Contagion" /o:"team-contagion" /d:sonar.host.url="https://sonarcloud.io/"
+              dotnet build Contagion/mvc/ContagionMVC.sln
+              dotnet sonarscanner end
 
 
-  #     - job: analyze_api
-  #       pool:
-  #         vmImage: ubuntu-18.04
-  #       steps:
-  #         - task: DotnetGlobalToolInstaller@0
-  #           inputs:
-  #             name: "dotnet-sonarscanner"
-  #         - script: |
-  #             dotnet sonarscanner begin /k:"p2-Contagion" /o:"team-contagion" /d:sonar.host.url="https://sonarcloud.io/"
-  #             dotnet build Contagion/webapi/ContagionAPI.sln
-  #             dotnet sonarscanner end
+      - job: analyze_api
+        pool:
+          vmImage: ubuntu-18.04
+        steps:
+          - task: DotnetGlobalToolInstaller@0
+            inputs:
+              name: "dotnet-sonarscanner"
+          - script: |
+              dotnet sonarscanner begin /k:"p2-Contagion" /o:"team-contagion" /d:sonar.host.url="https://sonarcloud.io/"
+              dotnet build Contagion/webapi/ContagionAPI.sln
+              dotnet sonarscanner end
 
   - stage: pack
     jobs:
