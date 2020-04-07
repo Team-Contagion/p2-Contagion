@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Contagion.Storage.Migrations
 {
     [DbContext(typeof(ContagionDbContext))]
-    [Migration("20200407030912_Eight")]
-    partial class Eight
+    [Migration("20200407033650_Nine")]
+    partial class Nine
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -41,56 +41,56 @@ namespace Contagion.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = 637218077523065327L,
+                            UserId = 637218094098029167L,
                             Lat = 32.7286784m,
                             Lon = -97.1046912m,
                             UserPhone = 987653432L
                         },
                         new
                         {
-                            UserId = 637218077523081379L,
+                            UserId = 637218094098045090L,
                             Lat = 32.7286784m,
                             Lon = -97.1346912m,
                             UserPhone = 8175550150L
                         },
                         new
                         {
-                            UserId = 637218077523081434L,
+                            UserId = 637218094098045148L,
                             Lat = 32.7566784m,
                             Lon = -97.1146912m,
                             UserPhone = 8175550131L
                         },
                         new
                         {
-                            UserId = 637218077523081439L,
+                            UserId = 637218094098045153L,
                             Lat = 32.7066784m,
                             Lon = -97.0846912m,
                             UserPhone = 8175550117L
                         },
                         new
                         {
-                            UserId = 637218077523081442L,
+                            UserId = 637218094098045155L,
                             Lat = 32.7186784m,
                             Lon = -97.2986532m,
                             UserPhone = 8175550142L
                         },
                         new
                         {
-                            UserId = 637218077523081444L,
+                            UserId = 637218094098045158L,
                             Lat = 32.7413513m,
                             Lon = -97.0846912m,
                             UserPhone = 8175550101L
                         },
                         new
                         {
-                            UserId = 637218077523081447L,
+                            UserId = 637218094098045161L,
                             Lat = 32.7281164m,
                             Lon = -97.1212765m,
                             UserPhone = 8175550148L
                         },
                         new
                         {
-                            UserId = 637218077523081450L,
+                            UserId = 637218094098045164L,
                             Lat = 32.7185123m,
                             Lon = -97.1416348m,
                             UserPhone = 8175550189L
