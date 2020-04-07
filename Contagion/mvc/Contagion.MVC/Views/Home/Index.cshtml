@@ -1,5 +1,7 @@
 ﻿@model Contagion.MVC.Models.UserModel;
 
+
+
 <img src="https://maps.googleapis.com/maps/api/staticmap?center=32.7226,-97.0785&zoom=12&size=640x640&maptype=roadmap&markers=color:red%7Clabel:C%7C32.73,-97.10&markers=color:red%7Clabel:C%7C32.73,-97.13&markers=color:red%7Clabel:C%7C32.76,-97.11&markers=color:red%7Clabel:C%7C32.71,-97.08&markers=color:red%7Clabel:C%7C32.72,-97.30&markers=color:red%7Clabel:C%7C32.74,-97.08&markers=color:red%7Clabel:C%7C32.73,-97.12&markers=color:red%7Clabel:C%7C32.72,-97.14&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:red%7Clabel:C%7C32.7226,-97.0785&markers=color:blue%7Clabel:H%7C32.7226,-97.0785&key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc">
 
 <form class="form-group" action="/home/users" method="post">
@@ -7,7 +9,7 @@
   {
     <div class="form-group">
       <label>Phone Number
-        <input type="text" asp-for="@Model.UserPhone" placeholder="1234567890">
+        <input type="number" asp-for="@Model.UserPhone" placeholder="1234567890">
       </label>
     </div>
 
@@ -17,13 +19,13 @@
 
     <div class="form-group">
       <label>Latitude:
-        <input id="lat" type="text" asp-for="@Model.Lat" placeholder="" readonly>
+        <input id="lat" type="number" asp-for="@Model.Lat" placeholder="" readonly>
       </label>
     </div>
 
     <div class="form-group">
       <label>Longitude:
-        <input id="lng" type="text" asp-for="@Model.Lon" placeholder="" readonly>
+        <input id="lng" type="number" asp-for="@Model.Lon" placeholder="" readonly>
       </label>
     </div>
   }

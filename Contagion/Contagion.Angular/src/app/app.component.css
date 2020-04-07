@@ -1,5 +1,5 @@
 input[type=number], select {
-  width: 50%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -8,23 +8,30 @@ input[type=number], select {
   box-sizing: border-box;
 }
 
-input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
 div {
+  width: 50%;
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+  margin: auto;
+}
+
+a {
+  width: 100%;
+  background-color: rgb(173, 189, 194);
+  color: white;
+  padding: 14px 20px;
+  margin: auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #838a8f;
+}
+
+p {
+  text-align: center;
 }
