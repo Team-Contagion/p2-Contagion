@@ -4,28 +4,28 @@ services:
 
   mvc:
     build:
-      context: Contagion
-      dockerfile: ../.docker/mvc.dockerfile
+      context: Contagion/mvc
+      dockerfile: ../../.docker/mvc.dockerfile
     image: bennetcd/mvcproj
     ports:
       - 4000:80
+    networks:
+      - newt
+      
+  api:
+    build:
+      context: Contagion/webapi
+      dockerfile: ../../.docker/api.dockerfile
+    image: bennetcd/apiproj
+    ports:
+      - 0:80
     networks:
       - newt
     environment:
       ConnectionStrings__main: "server=sql;database=contagiondb;user id=sa;password=Password12345;"
     depends_on: 
       - sql
-      
-  api:
-    build:
-      context: Contagion
-      dockerfile: ../.docker/api.dockerfile
-    image: bennetcd/apiproj
-    ports:
-      - 0:80
-    networks:
-      - newt
-
+    
   sql:
     image: mcr.microsoft.com/mssql/server:2017-latest
     environment:
@@ -36,6 +36,5 @@ services:
     ports:
       - 1433:1433
 
-      
 networks:
   newt:

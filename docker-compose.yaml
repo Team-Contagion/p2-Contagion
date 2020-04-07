@@ -11,10 +11,6 @@ services:
       - 4000:80
     networks:
       - newt
-    environment:
-      ConnectionStrings__main: "server=sql;database=contagiondb;user id=sa;password=Password12345;"
-    depends_on: 
-      - sql
       
   api:
     build:
@@ -25,7 +21,11 @@ services:
       - 0:80
     networks:
       - newt
-      
+    environment:
+      ConnectionStrings__main: "server=sql;database=contagiondb;user id=sa;password=Password12345;"
+    depends_on: 
+      - sql
+    
   sql:
     image: mcr.microsoft.com/mssql/server:2017-latest
     environment:
