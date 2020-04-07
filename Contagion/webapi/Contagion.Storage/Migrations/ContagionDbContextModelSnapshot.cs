@@ -42,7 +42,7 @@ namespace Contagion.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = 637218524889151492L,
+                            UserId = 637218544278168393L,
                             HealthStatus = "Positive",
                             Lat = 32.7286784m,
                             Lon = -97.1046912m,
@@ -50,7 +50,7 @@ namespace Contagion.Storage.Migrations
                         },
                         new
                         {
-                            UserId = 637218524889168213L,
+                            UserId = 637218544278186175L,
                             HealthStatus = "Negative",
                             Lat = 32.7286784m,
                             Lon = -97.1346912m,
@@ -58,7 +58,7 @@ namespace Contagion.Storage.Migrations
                         },
                         new
                         {
-                            UserId = 637218524889168282L,
+                            UserId = 637218544278186242L,
                             HealthStatus = "Positive",
                             Lat = 32.7566784m,
                             Lon = -97.1146912m,
@@ -66,7 +66,7 @@ namespace Contagion.Storage.Migrations
                         },
                         new
                         {
-                            UserId = 637218524889168287L,
+                            UserId = 637218544278186247L,
                             HealthStatus = "Negative",
                             Lat = 32.7066784m,
                             Lon = -97.0846912m,
@@ -74,7 +74,7 @@ namespace Contagion.Storage.Migrations
                         },
                         new
                         {
-                            UserId = 637218524889168290L,
+                            UserId = 637218544278186249L,
                             HealthStatus = "Positive",
                             Lat = 32.7186784m,
                             Lon = -97.2986532m,
@@ -82,7 +82,7 @@ namespace Contagion.Storage.Migrations
                         },
                         new
                         {
-                            UserId = 637218524889168293L,
+                            UserId = 637218544278186252L,
                             HealthStatus = "Negative",
                             Lat = 32.7413513m,
                             Lon = -97.0846912m,
@@ -90,7 +90,7 @@ namespace Contagion.Storage.Migrations
                         },
                         new
                         {
-                            UserId = 637218524889168295L,
+                            UserId = 637218544278186255L,
                             HealthStatus = "Positive",
                             Lat = 32.7281164m,
                             Lon = -97.1212765m,
@@ -98,7 +98,7 @@ namespace Contagion.Storage.Migrations
                         },
                         new
                         {
-                            UserId = 637218524889168298L,
+                            UserId = 637218544278186258L,
                             HealthStatus = "Positive",
                             Lat = 32.7185123m,
                             Lon = -97.1416348m,

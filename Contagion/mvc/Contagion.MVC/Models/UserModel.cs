@@ -9,11 +9,12 @@ namespace Contagion.MVC.Models
     public decimal Lon { get; set; }
     public string HealthStatus { get; set; }
 
-    public UserModel(long up, decimal lat, decimal lg)
+    public UserModel(long up, decimal lat, decimal lg, string healthStatus)
     {
       UserPhone = up;
       Lat = lat;
       Lon = lg;
+      HealthStatus = healthStatus;
     }
 
     public UserModel() {}
