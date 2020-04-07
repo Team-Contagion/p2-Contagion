@@ -8,6 +8,7 @@ namespace Contagion.Storage.Models
     public long UserPhone { get; set; }
     public decimal Lat { get; set; }
     public decimal Lon { get; set; }
+    public string HealthStatus { get; set; }
 
     public User()
     {

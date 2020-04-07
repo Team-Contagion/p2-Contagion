@@ -31,25 +31,19 @@
 
 @for (int i = 0; i < Model.Count - 1; i++)
 {
-  @* String status = Model[i].status;
-  if (status.equals("Positive"))
+  String status = Model[i].HealthStatus;
+  var color = "";
+  if (status == "Positive")
   {
-    var color = "color:red%7Clabel:C%7C";
-  } else if (status.Equals("Negative")) 
+    color = "color:red%7Clabel:P%7C";
+  } else if (status == "Negative")
   {
-    var color = "color:blue%7Clabel:S%7C";
-  } else if (status.Equals("Healthy"))
-  {
-    var color = "color:yellow%7Clabel:C%7C";
-  } else if (status.Equals("Symptotic"))
-  {
-    var color = "color:green%7Clabel:C%7C";
-  } *@
-  var color = "color:red%7Clabel:C%7C";
+    color = "color:blue%7Clabel:N%7C";
+  }
   var latlong = Model[i].Lat + "," + Model[i].Lon + "&";
   markers += "markers=" + color + latlong;
 }
-@{var colorHome = "color:blue%7Clabel:H%7C";}
+@{var colorHome = "color:yellow%7Clabel:H%7C";}
 @{var latlongHome = Model[count-1].Lat+ "," + Model[count-1].Lon + "&";}
 @{markers += "markers=" + colorHome + latlongHome;}
 

@@ -20,14 +20,14 @@ namespace Contagion.Storage.Database
       
       builder.Entity<User>().HasData(new User[]
       {
-        new User() { UserPhone = 0987653432, Lat = 32.7286784M, Lon = -97.1046912M},
-        new User() { UserPhone = 8175550150, Lat = 32.7286784M, Lon = -97.1346912M},
-        new User() { UserPhone = 8175550131, Lat = 32.7566784M, Lon = -97.1146912M},
-        new User() { UserPhone = 8175550117, Lat = 32.7066784M, Lon = -97.0846912M},
-        new User() { UserPhone = 8175550142, Lat = 32.7186784M, Lon = -97.2986532M},
-        new User() { UserPhone = 8175550101, Lat = 32.7413513M, Lon = -97.0846912M},
-        new User() { UserPhone = 8175550148, Lat = 32.7281164M, Lon = -97.1212765M},
-        new User() { UserPhone = 8175550189, Lat = 32.7185123M, Lon = -97.1416348M},       
+        new User() { UserPhone = 0987653432, Lat = 32.7286784M, Lon = -97.1046912M, HealthStatus = "Positive"},
+        new User() { UserPhone = 8175550150, Lat = 32.7286784M, Lon = -97.1346912M, HealthStatus = "Negative"},
+        new User() { UserPhone = 8175550131, Lat = 32.7566784M, Lon = -97.1146912M, HealthStatus = "Positive"},
+        new User() { UserPhone = 8175550117, Lat = 32.7066784M, Lon = -97.0846912M, HealthStatus = "Negative"},
+        new User() { UserPhone = 8175550142, Lat = 32.7186784M, Lon = -97.2986532M, HealthStatus = "Positive"},
+        new User() { UserPhone = 8175550101, Lat = 32.7413513M, Lon = -97.0846912M, HealthStatus = "Negative"},
+        new User() { UserPhone = 8175550148, Lat = 32.7281164M, Lon = -97.1212765M, HealthStatus = "Positive"},
+        new User() { UserPhone = 8175550189, Lat = 32.7185123M, Lon = -97.1416348M, HealthStatus = "Positive"},       
       });
     }
     private static readonly ContagionDbContext _db = new ContagionDbContext();
@@ -36,7 +36,7 @@ namespace Contagion.Storage.Database
 }
 // add migration
 //dotnet ef migrations add firstmigration -p Contagion.Storage/Contagion.Storage.csproj -s Contagion.MVC/Contagion.MVC.csproj
-//dotnet ef migrations add Seven -p webapi/Contagion.Storage/Contagion.Storage.csproj -s mvc/Contagion.MVC/Contagion.MVC.csproj
+//dotnet ef migrations add Seven -p webapi/Contagion.Storage/Contagion.Storage.csproj -s webapi/Contagion.API/Contagion.API.csproj
 // start up container
 //docker container run -dit --rm --name sqlserver -p 1433:1433 -e 'ACCEPT_EULA=y' -e 'SA_PASSWORD=Password12345' mcr.microsoft.com/mssql/server:2017-latest
 // update database

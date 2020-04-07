@@ -4,10 +4,10 @@ namespace Contagion.MVC.Models
 {
   public class UserModel
   {
-
     public long UserPhone { get; set; }
     public decimal Lat { get; set; }
     public decimal Lon { get; set; }
+    public string HealthStatus { get; set; }
 
     public UserModel(long up, decimal lat, decimal lg)
     {
@@ -17,7 +17,5 @@ namespace Contagion.MVC.Models
     }
 
     public UserModel() {}
-  }
-
-  
+  }  
 }

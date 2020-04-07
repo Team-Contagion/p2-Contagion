@@ -77,6 +77,7 @@ namespace Contagion.MVC.Controllers
           Console.WriteLine(userModel.Lat);
           Console.WriteLine(userModel.Lon);
           Console.WriteLine(userModel.UserPhone);
+          Console.WriteLine(userModel.HealthStatus);
           string json = JsonConvert.SerializeObject(userModel);
           HttpContent httpContent = new StringContent(json, Encoding.UTF8, "application/json");
           var response = _http.PostAsync("http://api/contagion", httpContent).GetAwaiter().GetResult();
