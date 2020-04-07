@@ -8,10 +8,10 @@ stages:
     jobs:
       - job: build_mvc
         steps:
-          - script: dotnet build Contagion/Contagion.MVC/*.csproj
+          - script: dotnet build Contagion/mvc/ContagionMVC.sln
       - job: build_api
         steps:
-          - script: dotnet build Contagion/Contagion.API/*.csproj
+          - script: dotnet build Contagion/webapi/ContagionAPI.sln
 
   # - stage: test
   #   jobs:
@@ -30,21 +30,21 @@ stages:
               name: "dotnet-sonarscanner"
           - script: |
               dotnet sonarscanner begin /k:"p2-Contagion" /o:"team-contagion" /d:sonar.host.url="https://sonarcloud.io/"
-              dotnet build Contagion/*.sln
+              dotnet build Contagion/mvc/ContagionMVC.sln
               dotnet sonarscanner end
 
 
-      # - job: analyze_api
-      #   pool:
-      #     vmImage: ubuntu-18.04
-      #   steps:
-      #     - task: DotnetGlobalToolInstaller@0
-      #       inputs:
-      #         name: "dotnet-sonarscanner"
-      #     - script: |
-      #         dotnet sonarscanner begin /k:"p2-Contagion" /o:"team-contagion" /d:sonar.host.url="https://sonarcloud.io/"
-      #         dotnet build Contagion/*.sln
-      #         dotnet sonarscanner end
+      - job: analyze_api
+        pool:
+          vmImage: ubuntu-18.04
+        steps:
+          - task: DotnetGlobalToolInstaller@0
+            inputs:
+              name: "dotnet-sonarscanner"
+          - script: |
+              dotnet sonarscanner begin /k:"p2-Contagion" /o:"team-contagion" /d:sonar.host.url="https://sonarcloud.io/"
+              dotnet build Contagion/webapi/ContagionAPI.sln
+              dotnet sonarscanner end
 
   - stage: pack
     jobs:
@@ -55,7 +55,7 @@ stages:
               command: login
               containerRegistry: docker
           - script: |
-              docker image build --file .docker/mvc.dockerfile --tag bennetcd/mvcproj Contagion
+              docker image build --file .docker/mvc.dockerfile --tag bennetcd/mvcproj Contagion/mvc
               docker image push bennetcd/mvcproj
           - task: Docker@2
             inputs:
@@ -68,7 +68,7 @@ stages:
               command: login
               containerRegistry: docker
           - script: |
-              docker image build --file .docker/api.dockerfile --tag bennetcd/apiproj Contagion
+              docker image build --file .docker/api.dockerfile --tag bennetcd/apiproj Contagion/webapi
               docker image push bennetcd/apiproj
           - task: Docker@2
             inputs:
