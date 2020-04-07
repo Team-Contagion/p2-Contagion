@@ -1,0 +1,10 @@
+<form>
+  <label for="">Add LatLong</label>
+  <input type="number" [(ngModel)]="contagion.latitude" name="latitude" required />
+  <input type="number" [(ngModel)]="contagion.longitude" name="longitude" required />
+  <button type="button" (click)="addLatLong()">location</button>  
+</form>
+
+<br>
+
+<a href="https://maps.googleapis.com/maps/api/staticmap?center={{ contagion.latitude }},{{ contagion.longitude }}&zoom=12&size=800x600&maptype=roadmap&markers=color:red%7Clabel:C%7C{{ contagion.latitude }},{{ contagion.longitude }}&key=AIzaSyCd8-6YXmDwESXdgRmwWLrbiNFLwLdKYIc">map</a>
