@@ -2,7 +2,7 @@
 
 namespace Contagion.Storage.Migrations
 {
-    public partial class Seven : Migration
+    public partial class Eight : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -51,14 +51,14 @@ namespace Contagion.Storage.Migrations
                 columns: new[] { "UserId", "Lat", "Lon", "UserPhone" },
                 values: new object[,]
                 {
-                    { 637218067954092291L, 32.7286784m, -97.1046912m, 987653432L },
-                    { 637218067954107378L, 32.7286784m, -97.1346912m, 8175550150L },
-                    { 637218067954107436L, 32.7566784m, -97.1146912m, 8175550131L },
-                    { 637218067954107441L, 32.7066784m, -97.0846912m, 8175550117L },
-                    { 637218067954107444L, 32.7186784m, -97.2986532m, 8175550142L },
-                    { 637218067954107447L, 32.7413513m, -97.0846912m, 8175550101L },
-                    { 637218067954107450L, 32.7281164m, -97.1212765m, 8175550148L },
-                    { 637218067954107454L, 32.7185123m, -97.1416348m, 8175550189L }
+                    { 637218077523065327L, 32.7286784m, -97.1046912m, 987653432L },
+                    { 637218077523081379L, 32.7286784m, -97.1346912m, 8175550150L },
+                    { 637218077523081434L, 32.7566784m, -97.1146912m, 8175550131L },
+                    { 637218077523081439L, 32.7066784m, -97.0846912m, 8175550117L },
+                    { 637218077523081442L, 32.7186784m, -97.2986532m, 8175550142L },
+                    { 637218077523081444L, 32.7413513m, -97.0846912m, 8175550101L },
+                    { 637218077523081447L, 32.7281164m, -97.1212765m, 8175550148L },
+                    { 637218077523081450L, 32.7185123m, -97.1416348m, 8175550189L }
                 });
         }
 
@@ -67,42 +67,42 @@ namespace Contagion.Storage.Migrations
             migrationBuilder.DeleteData(
                 table: "User",
                 keyColumn: "UserId",
-                keyValue: 637218067954092291L);
+                keyValue: 637218077523065327L);
 
             migrationBuilder.DeleteData(
                 table: "User",
                 keyColumn: "UserId",
-                keyValue: 637218067954107378L);
+                keyValue: 637218077523081379L);
 
             migrationBuilder.DeleteData(
                 table: "User",
                 keyColumn: "UserId",
-                keyValue: 637218067954107436L);
+                keyValue: 637218077523081434L);
 
             migrationBuilder.DeleteData(
                 table: "User",
                 keyColumn: "UserId",
-                keyValue: 637218067954107441L);
+                keyValue: 637218077523081439L);
 
             migrationBuilder.DeleteData(
                 table: "User",
                 keyColumn: "UserId",
-                keyValue: 637218067954107444L);
+                keyValue: 637218077523081442L);
 
             migrationBuilder.DeleteData(
                 table: "User",
                 keyColumn: "UserId",
-                keyValue: 637218067954107447L);
+                keyValue: 637218077523081444L);
 
             migrationBuilder.DeleteData(
                 table: "User",
                 keyColumn: "UserId",
-                keyValue: 637218067954107450L);
+                keyValue: 637218077523081447L);
 
             migrationBuilder.DeleteData(
                 table: "User",
                 keyColumn: "UserId",
-                keyValue: 637218067954107454L);
+                keyValue: 637218077523081450L);
 
             migrationBuilder.InsertData(
                 table: "User",
