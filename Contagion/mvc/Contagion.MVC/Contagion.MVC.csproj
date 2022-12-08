@@ -9,7 +9,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Newtonsoft.json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.json" Version="13.0.2" />
   </ItemGroup>
 
 </Project>
